@@ -1,5 +1,5 @@
 ![logo](logo.png)
-# GATEWAY [![Build Status](https://travis-ci.com/Marfusios/micro-frontend-alpha.svg?branch=master)](https://travis-ci.com/Marfusios/micro-frontend-alpha)
+# GATEWAY [![Build Status](https://travis-ci.com/Marfusios/micro-frontend-gateway.svg?branch=master)](https://travis-ci.com/Marfusios/micro-frontend-gateway)[![demo link](https://img.shields.io/badge/demo-link-blue.svg)](http://mkotas.cz/micro-frontend-gateway)
 
 This is Micro Frontends proof of concept. 
 
