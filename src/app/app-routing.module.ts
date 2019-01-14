@@ -27,8 +27,8 @@ const routes: Routes = [
     children: [
       {
         path: 'alpha',
-        loadChildren: () => loadRemoteChildren('http://127.0.0.1:3333')
-        // loadChildren: () => loadRemoteChildren('http://mkotas.cz/micro-frontend-alpha')
+        // loadChildren: () => loadRemoteChildren('http://127.0.0.1:3333')
+        loadChildren: () => loadRemoteChildren('http://mkotas.cz/micro-frontend-alpha')
       },
       {
         path: 'beta',

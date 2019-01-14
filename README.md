@@ -1,27 +1,44 @@
-# MicroFrontendGateway
+![logo](logo.png)
+# GATEWAY [![Build Status](https://travis-ci.com/Marfusios/micro-frontend-alpha.svg?branch=master)](https://travis-ci.com/Marfusios/micro-frontend-alpha)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.1.
+This is Micro Frontends proof of concept. 
 
-## Development server
+To cover these **requirements**: 
+* separate frontend per every microservice (micro frontend AKA ‘MF’)
+* MF independently deployable, has to be dynamically loaded in runtime (not statically built)
+    * via canary deployment we want to load ALPHA microservice in version 1.0, but BETA microservice in version 1.2
+    * other canary deployment wants to load ALPHA microservice in version 2.0, but BETA microservice in version 1.0
+* frontend source codes as part of the backend git repository (to be versioned together)
+* preserve look and feel of SPA application
+    * like desktop application
+    * instant switching between modules
+    * only one full reload
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### Architecture
 
-## Code scaffolding
+![separation](mf_separation.png)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Implementation
 
-## Build
+Current implementation is based on [Angular](https://angular.io/) and [Angular Package Format](https://docs.google.com/document/d/1CZC2rcpxffTDfRDs6p1cfbmKNLA6x5O-NtkJglDaBVs/preview) (via library [ng-packagr](https://github.com/ng-packagr/ng-packagr)).
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Micro frontends can be found here: 
+* ALPHA [github.com/marfusios/micro-frontend-alpha](https://github.com/Marfusios/micro-frontend-alpha)
+* BETA [github.com/marfusios/micro-frontend-beta](https://github.com/Marfusios/micro-frontend-beta)
 
-## Running unit tests
+Gateway deployed at: [mkotas.cz/micro-frontend-gateway](http://mkotas.cz/micro-frontend-gateway)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Usage
 
-## Running end-to-end tests
+* local development
+    * `npm start`
+    * modify urls in 'app-routing.module.ts'
+* remote deployment
+    * `npm build-deploy`
+    * copy content of 'deployment' directory into web server
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+### Resources
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+* [Micro Frontends idea](https://micro-frontends.org/)
+* [Lazy Loading Angular modules from a remote server](https://www.all-loops-considered.org/2018/07/07/angular-remote-lazy-loading/)
+* [Creating a Library with Angular CLI](https://blog.angularindepth.com/creating-a-library-in-angular-6-87799552e7e5)
