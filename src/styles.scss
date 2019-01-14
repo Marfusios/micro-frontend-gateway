@@ -1,1 +1,42 @@
 /* You can add global styles to this file, and also import other style files */
+
+$textBaseColor: #333333;
+$textSubHeaderColor: #666666;
+$textDisabledColor: #999999;
+
+$backgroundBaseColor: #ffffff;
+$backgroundBaseColor: #ffffff;
+$backgroundLightColor: #F6F7FC;
+
+$scrollBarWidth: 13px;
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  overflow-y: hidden;
+  color: $textBaseColor;
+  background-color: $backgroundBaseColor;
+  font: 400 1em/1.4 -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, 'Open Sans', Arial, sans-serif;
+  text-rendering: optimizeLegibility;
+
+  ::-webkit-scrollbar {
+    width: $scrollBarWidth;
+    height: $scrollBarWidth;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(50,50,50,0.25);
+    border: 2px solid transparent;
+    border-radius: 10px;
+    background-clip: padding-box;
+  }
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
