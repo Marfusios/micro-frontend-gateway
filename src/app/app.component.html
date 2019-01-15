@@ -1,14 +1,26 @@
-<div style="text-align:center">
-  <h1>
-    GATEWAY to micro frontends
-  </h1>
+<div class="top-panel">
+
+  <div style="text-align:center">
+    <div class="github">
+      <a class="github-button" href="https://github.com/marfusios/micro-frontend-gateway"
+         data-size="large"
+         aria-label="Star marfusios/micro-frontend-gateway on GitHub">Git repo</a>
+    </div>
+    <h1>
+      GATEWAY
+    </h1>
+    <span>to micro frontends</span>
+  </div>
+
+  <app-navigation></app-navigation>
+
 </div>
 
-<nav>
-  <a routerLink="services/alpha">ALPHA service</a>
-  <a routerLink="services/beta">BETA service</a>
-</nav>
+<div class="content-panel">
 
-<hr/>
+  <router-outlet></router-outlet>
 
-<router-outlet></router-outlet>
+</div>
+
+
+

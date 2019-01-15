@@ -8,8 +8,11 @@ import * as common from '@angular/common';
 import * as commonHttp from '@angular/common/http';
 import * as core from '@angular/core';
 import * as router from '@angular/router';
+import * as forms from '@angular/forms';
+import * as animations from '@angular/animations';
 import * as rxjs from 'rxjs';
 import * as rxjsOperators from 'rxjs/operators';
+import * as tslib from 'tslib';
 
 
 /**
@@ -20,8 +23,11 @@ SystemJS.set('@angular/core', SystemJS.newModule(core));
 SystemJS.set('@angular/common', SystemJS.newModule(common));
 SystemJS.set('@angular/common/http', SystemJS.newModule(commonHttp));
 SystemJS.set('@angular/router', SystemJS.newModule(router));
+SystemJS.set('@angular/forms', SystemJS.newModule(forms));
+SystemJS.set('@angular/animations', SystemJS.newModule(animations));
 SystemJS.set('rxjs', SystemJS.newModule(rxjs));
 SystemJS.set('rxjs/operators', SystemJS.newModule(rxjsOperators));
+SystemJS.set('tslib', SystemJS.newModule(tslib));
 
 if (environment.production) {
   enableProdMode();
