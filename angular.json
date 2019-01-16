@@ -30,7 +30,10 @@
               "src/styles.scss"
             ],
             "scripts": [
-              "node_modules/systemjs/dist/system.js"
+              "node_modules/systemjs/dist/system.js",
+              {
+                "input": "node_modules/document-register-element/build/document-register-element.js"
+              }
             ]
           },
           "configurations": {

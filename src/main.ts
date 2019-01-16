@@ -13,6 +13,7 @@ import * as animations from '@angular/animations';
 import * as rxjs from 'rxjs';
 import * as rxjsOperators from 'rxjs/operators';
 import * as tslib from 'tslib';
+import * as aElements from '@angular/elements';
 
 
 /**
@@ -25,6 +26,7 @@ SystemJS.set('@angular/common/http', SystemJS.newModule(commonHttp));
 SystemJS.set('@angular/router', SystemJS.newModule(router));
 SystemJS.set('@angular/forms', SystemJS.newModule(forms));
 SystemJS.set('@angular/animations', SystemJS.newModule(animations));
+SystemJS.set('@angular/elements', SystemJS.newModule(aElements));
 SystemJS.set('rxjs', SystemJS.newModule(rxjs));
 SystemJS.set('rxjs/operators', SystemJS.newModule(rxjsOperators));
 SystemJS.set('tslib', SystemJS.newModule(tslib));
