@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { ErrorComponent } from './components/error/error.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { NavigationComponent } from './components/navigation/navigation.componen
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    StoreModule.forRoot({}),
   ],
   providers: [],
   bootstrap: [AppComponent],

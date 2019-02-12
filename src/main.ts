@@ -14,6 +14,7 @@ import * as rxjs from 'rxjs';
 import * as rxjsOperators from 'rxjs/operators';
 import * as tslib from 'tslib';
 import * as aElements from '@angular/elements';
+import * as store from '@ngrx/store';
 
 
 /**
@@ -30,6 +31,7 @@ SystemJS.set('@angular/elements', SystemJS.newModule(aElements));
 SystemJS.set('rxjs', SystemJS.newModule(rxjs));
 SystemJS.set('rxjs/operators', SystemJS.newModule(rxjsOperators));
 SystemJS.set('tslib', SystemJS.newModule(tslib));
+SystemJS.set('@ngrx/store', SystemJS.newModule(store));
 
 if (environment.production) {
   enableProdMode();
