@@ -1,18 +1,28 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import {ErrorComponent} from './components/error/error.component';
+import { RouterModule, Routes } from '@angular/router';
+
+import { environment } from '../environments/environment';
+import { ErrorComponent } from './components/error/error.component';
+import { getApps, AppConfiguration } from './apps.configuration';
 
 declare const SystemJS;
 
 /**
  * Lazy load remote bundle (AOT compatible!)
  */
-export const loadRemoteChildren = url =>
-  SystemJS.import(`${url}/bundle.umd.min.js`)
-    .then(module => module.EntryModule)
+export const loadRemoteChildren = (configuration: AppConfiguration) => {
+  // const importUrl = !!environment.devModulePrefixPath && name === environment.devModuleName
+  //   ? `${environment.devModulePrefixPath}/bundle.umd.min.js` : `${url}/bundle.umd.min.js`;
+  // const importUrl = '../../../entry/entry.module#EntryModule';
+  const importUrl = `${configuration.devUrl || configuration.url}/bundle.umd.min.js`;
+
+  return SystemJS.import(importUrl)
+    .then(entryModule => entryModule.EntryModule)
     .catch(err => {
-      handleLoadError(url, err);
+      handleLoadError(importUrl, err);
     });
+};
+
 
 const handleLoadError = function (url, err) {
   const msg = `Failed to load service from '${url}'.`;
@@ -24,18 +34,12 @@ const handleLoadError = function (url, err) {
 const routes: Routes = [
   {
     path: 'services',
-    children: [
-      {
-        path: 'alpha',
-        // loadChildren: () => loadRemoteChildren('http://127.0.0.1:3333')
-        loadChildren: () => loadRemoteChildren('http://mkotas.cz/micro-frontend-alpha')
-      },
-      {
-        path: 'beta',
-        // loadChildren: () => loadRemoteChildren('http://127.0.0.1:4444')
-        loadChildren: () => loadRemoteChildren('http://mkotas.cz/micro-frontend-beta')
-      }
-    ]
+    children: getApps().map(item => {
+      return {
+        path: item.path,
+        loadChildren: () => loadRemoteChildren(item)
+      };
+    })
   },
   {
     path: 'error/:msg',
@@ -45,7 +49,6 @@ const routes: Routes = [
     path: 'error',
     component: ErrorComponent
   }
-  // { path: '', redirectTo: 'services/alpha', pathMatch: 'full' }
 ];
 
 @NgModule({

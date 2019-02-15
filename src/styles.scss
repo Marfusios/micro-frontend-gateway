@@ -1,8 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import "global";
-@import "@angular/material/prebuilt-themes/deeppurple-amber.css";
 
+// AgGrid properties
+$ag-icons-path: "~ag-grid-community/src/styles/ag-theme-balham/icons/";
+
+$icon-color: #03a9f4;
+$alt-icon-color: #03a9f4;
+$accent-color: #FFFFF1;
+
+$header-height: 50px;
+$row-height: 40px;
+$row-border-width: 1px;
+$hover-color: cornsilk;
+
+$ag-range-selected-color-1: rgb(250, 235, 215);
+$ag-range-selected-color-2: darken($ag-range-selected-color-1, 10%);
+$ag-range-selected-color-3: darken($ag-range-selected-color-1, 20%);
+$ag-range-selected-color-4: darken($ag-range-selected-color-1, 30%);
+
+// Custom properties
 $scrollBarWidth: 13px;
 
 * {
@@ -35,3 +52,6 @@ body {
   margin: 0;
   padding: 0;
 }
+
+@import "~ag-grid-community/src/styles/ag-grid";
+@import "~ag-grid-community/src/styles/ag-theme-balham/sass/ag-theme-balham";

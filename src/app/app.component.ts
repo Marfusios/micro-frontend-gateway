@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { getApps } from './apps.configuration';
+import { ComponentLoaderService } from './services/component-loader-service/component-loader.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'micro-frontend-gateway';
+  constructor(private _componentLoaderService: ComponentLoaderService) {
+    this.loadGlobalBundles();
+  }
+
+  loadGlobalBundles() {
+    getApps().forEach(app => this._componentLoaderService.updateModule(app));
+  }
 }
